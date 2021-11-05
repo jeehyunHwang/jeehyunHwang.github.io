@@ -16,5 +16,3 @@ group :jekyll_plugins do
     gem 'unicode_utils'
     gem 'webrick'
 end
-
-gem 'jekyll-admin', group: :jekyll_plugins

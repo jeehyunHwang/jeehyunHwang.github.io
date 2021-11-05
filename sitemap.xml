@@ -13,6 +13,7 @@
 <lastmod>2016-01-15T11:59:00+00:00</lastmod>
 </url>
 <url>
+<<<<<<< HEAD
 <loc>https://jeehyunhwang.github.io/blog/2015/formatting-and-links/</loc>
 <lastmod>2015-03-15T16:40:16+00:00</lastmod>
 </url>
@@ -46,10 +47,46 @@
 </url>
 <url>
 <loc>https://jeehyunhwang.github.io/blog/2021/diagrams/</loc>
+=======
+<loc>https://jeehyunhwang.github.io/sample-posts/2015/03/15/formatting-and-links.html</loc>
+<lastmod>2015-03-15T16:40:16+00:00</lastmod>
+</url>
+<url>
+<loc>https://jeehyunhwang.github.io/sample-posts/2015/05/15/images.html</loc>
+<lastmod>2015-05-15T21:01:00+00:00</lastmod>
+</url>
+<url>
+<loc>https://jeehyunhwang.github.io/sample-posts/2015/07/15/code.html</loc>
+<lastmod>2015-07-15T15:09:00+00:00</lastmod>
+</url>
+<url>
+<loc>https://jeehyunhwang.github.io/sample-posts/2015/10/20/math.html</loc>
+<lastmod>2015-10-20T15:12:00+00:00</lastmod>
+</url>
+<url>
+<loc>https://jeehyunhwang.github.io/sample-posts/external-services/2015/10/20/comments.html</loc>
+<lastmod>2015-10-20T15:59:00+00:00</lastmod>
+</url>
+<url>
+<loc>https://jeehyunhwang.github.io/sample-posts/external-services/2020/09/28/twitter.html</loc>
+<lastmod>2020-09-28T15:12:00+00:00</lastmod>
+</url>
+<url>
+<loc>https://jeehyunhwang.github.io/sample-posts/external-services/2020/09/28/github-metadata.html</loc>
+<lastmod>2020-09-28T21:01:00+00:00</lastmod>
+</url>
+<url>
+<loc>https://jeehyunhwang.github.io/2021/05/22/distill.html</loc>
+<lastmod>2021-05-22T00:00:00+00:00</lastmod>
+</url>
+<url>
+<loc>https://jeehyunhwang.github.io/2021/07/04/diagrams.html</loc>
+>>>>>>> 6228df2e6603990406fb3b618137ae2fce2f3614
 <lastmod>2021-07-04T17:39:00+00:00</lastmod>
 </url>
 <url>
 <loc>https://jeehyunhwang.github.io/projects/1_project/</loc>
+<<<<<<< HEAD
 <lastmod>2021-11-05T16:27:30+00:00</lastmod>
 </url>
 <url>
@@ -71,12 +108,39 @@
 <url>
 <loc>https://jeehyunhwang.github.io/projects/6_project/</loc>
 <lastmod>2021-11-05T16:27:30+00:00</lastmod>
+=======
+<lastmod>2021-11-05T17:03:02+00:00</lastmod>
+</url>
+<url>
+<loc>https://jeehyunhwang.github.io/projects/2_project/</loc>
+<lastmod>2021-11-05T17:03:02+00:00</lastmod>
+</url>
+<url>
+<loc>https://jeehyunhwang.github.io/projects/3_project/</loc>
+<lastmod>2021-11-05T17:03:02+00:00</lastmod>
+</url>
+<url>
+<loc>https://jeehyunhwang.github.io/projects/4_project/</loc>
+<lastmod>2021-11-05T17:03:02+00:00</lastmod>
+</url>
+<url>
+<loc>https://jeehyunhwang.github.io/projects/5_project/</loc>
+<lastmod>2021-11-05T17:03:02+00:00</lastmod>
+</url>
+<url>
+<loc>https://jeehyunhwang.github.io/projects/6_project/</loc>
+<lastmod>2021-11-05T17:03:02+00:00</lastmod>
+>>>>>>> 6228df2e6603990406fb3b618137ae2fce2f3614
 </url>
 <url>
 <loc>https://jeehyunhwang.github.io/</loc>
 </url>
 <url>
+<<<<<<< HEAD
 <loc>https://jeehyunhwang.github.io/_pages/dropdown/</loc>
+=======
+<loc>https://jeehyunhwang.github.io/_pages/dropdown.html</loc>
+>>>>>>> 6228df2e6603990406fb3b618137ae2fce2f3614
 </url>
 <url>
 <loc>https://jeehyunhwang.github.io/projects/</loc>
