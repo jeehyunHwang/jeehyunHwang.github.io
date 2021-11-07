@@ -210,32 +210,33 @@
     <p></p>
 
 <p>
-  Owing to the remarkable development of deep
-  learning technology, there have been a series of efforts to build
-  deep learning-based climate models. Whereas most of them utilize
-  recurrent neural networks and/or graph neural networks, we
-  design a novel climate model based on the two concepts, the
-  neural ordinary differential equation (NODE) and the diffusion
-  equation. Many physical processes involving a Brownian motion
-  of particles can be described by the diffusion equation and as a
-  result, it is widely used for modeling climate. On the other hand,
-  neural ordinary differential equations (NODEs) are to learn a
-  latent governing equation of ODE from data. In our presented
-  method, we combine them into a single framework and propose
-  a concept, called neural diffusion equation (NDE). Our NDE,
-  equipped with the diffusion equation and one more additional
-  neural network to model inherent uncertainty, can learn an
-  appropriate latent governing equation that best describes a given
-  climate dataset. In our experiments with two real-world and one
-  synthetic datasets and eleven baselines, our method consistently
-  outperforms existing baselines by non-trivial margins.
+  Climate modeling with neural diffusion equations, started off as a task for capstone project in Yonsei University.
+  After working on the <a href="/projects/NPDE/">neural partial differential equations (Neural PDE)</a> project in 
+  <a href="https://sites.google.com/view/npark/home">BigDyl</a> lab with Prof.Noseong Park, which was closely related to 
+  <a href="https://towardsdatascience.com/neural-odes-breakdown-of-another-deep-learning-breakthrough-3e78c7213795">neural ODE</a>, 
+  my interest was mainly focused in neural differential equations. During the time of research for the project Neural PDE, 
+  I learned about climate modeling through the partial differential equation. However, attempts on directly applying Neural PDE to climate datasets, or
+  to other spatiotemporal datasets, weren't successful as expected. This induced me to dig deeper into the recent successes of spatiotemporal models, which
+  produced successful prediction results in climate forecasting / traffic forecasting tasks during the time.
 </p>
-
-  <div class="row justify-content-sm-center">
-    <div class="col-sm-10 mt-2 mt-md-0">
-    <img class="img-fluid rounded center" src="/assets/resized/NDE_FRAMEWORK.png">
-    </div>
+<div class="row justify-content-sm-center">
+  <div class="col-sm-10 mt-2 mt-md-0">
+  <img class="img-fluid rounded center" src="/assets/resized/NDE_FRAMEWORK.png">
   </div>
+</div>
+<div class="caption">
+  The overall workflow of the proposed <i>neural diffusion equation</i> 
+</div>
+<p>
+  My experience in PDEs and Neural ODEs, merged with the interest in spatiotemporal models (escpecially GCNs), resulted
+  in a newly designed concept of Neural Diffusion Equation. There are two ways to view the proposed concept NDE. <br><br>
+  (1) Modeling diffusion equation with Neural ODE<br>
+  (2) Continuous version of graph neural networks.
+</p>
+<p>
+  Differentiable Physics-informed Graph Networks (DPGN) [1], is a good starting point on explaining why NDE can be viewed as 
+  modeling diffusion equation with Neural ODE. As stated in [1],
+</p>
   <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-2 mt-md-0">
     <img class="img-fluid" src="/assets/resized/NDE_model.png">
