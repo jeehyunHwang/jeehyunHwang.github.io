@@ -75,7 +75,7 @@
           <!-- About -->
           <li class="nav-item ">
             <a class="nav-link" href="/">
-              about
+              main
               
             </a>
           </li>
@@ -115,6 +115,16 @@
           
           
           
+          
+          
+          
+          
+          <li class="nav-item ">
+            <a class="nav-link" href="/about/">
+              about
+              
+            </a>
+          </li>
           
           
           
@@ -299,7 +309,7 @@ Description of the proposed model, <i>NDE</i>.
   applied in various GNN based papers. Take for example, simple graph convolution (SGC) [2]. SGC has the following layer definition. 
   $$H(m) = S^mH(0) \tag3$$ 
   where \(H\) is the node hidden matrix, and \(S^m\) is the \(m\)-th power of the symmetrically normalized adjacency matrix S with added self loops.
-  Then, <i>Eq.(2)</i> can be derived from <i>Eq.(3)</i>, as proven in [3], where <i>Eq.(2)</i> becomes equivalent to <i>Eq.(3)</i> when Euler method with a unit 
+  Then, <i>Eq.(2)</i> can be derived from <i>Eq.(3)</i>, as proven in our paper, where <i>Eq.(2)</i> becomes equivalent to <i>Eq.(3)</i> when Euler method with a unit 
   step size is used. This analogy of diffusion based GNNs to continuous graph neural networks enables simple euler solvers to be expanded to various solvers, such 
   as Dormand-Prince method or implicit solvers. Moreover, neural network for uncertainty modeling can be applied side by side with diffusion equation completing 
   the equation for our NDE.
@@ -312,8 +322,14 @@ Description of the proposed model, <i>NDE</i>.
   Since there are numerous equations that can be applied in this framework, a simple extension would be changing the differential equation.
   Advection-diffusion (or convection-diffusion) equation, would the most straight-forward extension of our work, which also takes into consideration of the direction
   of graph. Since the graph structure and edge classes are maintained throughout the whole process of our proposed training process, dynamic graphs or graph-structure
-  learning can also be an advancement. Finally, with the recent success of neural controlled differential equation, NCDE[4], its also a great way to renew / 
-  develop the idea.(Check on our new project, <a href="/projects/STG-NCDE/index.html">STG-NCDE</a>)
+  learning can also be an advancement. Finally, controlled differential equations, a more general equation that ordinary differential equation that uses Riemman 
+  integral, can also be a good direction to advance. (Check on our new project <a href="/projects/STG-NCDE/index.html">STG-NCDE</a>)</p>
+<p>
+  <h3>References</h3>
+  [1]S. Seo and Y. Liu, “Differentiable physics-informed graph networks,” arXiv preprint, 2019<br>
+  [2]F. Wu, A. Souza, T. Zhang, C. Fifty, T. Yu, and K. Weinberger, “Simplifying graph convolutional networks,” in ICML. PMLR, 2019.<br>
+</p>
+
   </article>
 
 </div>
