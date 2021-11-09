@@ -210,6 +210,7 @@
     <p></p>
 
 <p>
+  <h2>How it all started</h2>
   Climate modeling with neural diffusion equations, started off as a task for capstone project in Yonsei University.
   After working on the <a href="/projects/NPDE/">neural partial differential equations (Neural PDE)</a> project in 
   <a href="https://sites.google.com/view/npark/home">BigDyl</a> lab with Prof.Noseong Park, which was closely related to 
@@ -220,13 +221,6 @@
   to other spatiotemporal datasets, weren't successful as expected. This induced me to dig deeper into the recent successes of spatiotemporal models, which
   produced successful prediction results in climate forecasting / traffic forecasting tasks during the time.
 </p>
-<p>
-  My experience in PDEs and Neural ODEs, merged with the interest in spatiotemporal models (escpecially GCNs), resulted
-  in a newly designed concept of Neural Diffusion Equation. There are two ways to view the proposed concept NDE.
-</p><p>
-  (1) Modeling diffusion equation with Neural ODE<br>
-  (2) Continuous version of graph neural networks.
-</p>
 <div class="row justify-content-sm-center">
   <div class="col-sm-10 mt-2 mt-md-0">
   <img class="img-fluid rounded center" src="/assets/resized/NDE_FRAMEWORK.png">
@@ -235,6 +229,7 @@
 <div class="caption">
   The overall workflow of the proposed <i>neural diffusion equation</i>. 
 </div>
+<h2>So what is Neural Diffusion Equation?</h2>
 <p>
   Before diving in to extensions and interpretations of the proposed NDE, I would like to explain briefly about the concept (For those who want more detailed 
   explanation on the method, please refer to the paper, [<a href="/assets/pdf/Climate_Modeling_with_Neural_Ordinary_Differential_Equations.pdf">PDF</a>].). 
@@ -262,6 +257,14 @@ Description of the proposed model, <i>NDE</i>.
   cannot be addressed by diffusion processes alone.
 </p>
 <p>
+  <h2>Perspectives of interpreting NDE</h2>
+  <p>
+    There are two ways to view the proposed concept NDE.
+  </p><p>
+    (1) Modeling diffusion equation with Neural ODE<br>
+    (2) Continuous version of graph neural networks.
+  </p>
+
   Differentiable Physics-informed Graph Networks (DPGN) [1], is a good starting point on explaining why NDE can be viewed as 
   modeling diffusion equation with Neural ODE. As stated in [1], number of physics equations are involved in climate observations,
   and it is almost infeasible to include all required equations. Therefore, they suggested a solution involving graph neural networks,
@@ -273,18 +276,44 @@ Description of the proposed model, <i>NDE</i>.
   Here, \(h \in R^{|V|\times1}\)is a vector that contains a value for each node. This enables the application of neural ODE. 
   Though this may seem as a simple extension of neural ODE, the concept contains much deeper interpretations and extensions. 
 </p>
+<div class="row justify-content-sm-center">
+  <div class="col-sm-3 mt-2 mt-md-0">
+    <img class="img-fluid" src="/assets/resized/t1.jpg">
+  </div>
+  <div class="col-sm-3 mt-2 mt-md-0">
+    <img class="img-fluid" src="/assets/resized/t2.jpg">
+  </div>
+  <div class="col-sm-3 mt-2 mt-md-0">
+    <img class="img-fluid" src="/assets/resized/t3.jpg">
+  </div>
+  <div class="col-sm-3 mt-2 mt-md-0">
+    <img class="img-fluid" src="/assets/resized/t4.jpg">
+  </div>
+</div>
+<div class="caption">
+  Temperature change of LA dataset over time. Nodes are exchanging temperature similar to heat diffusion process.
+</div>
 <p>
   Graph Neural Networks (GNNs), operate by exchanging information between adjacent nodes in the form of message passing. This process is 
   conceptually equivalent to diffusion process, where nodes conduct diffusion through the edges between each other. This analogy can be 
   applied in various GNN based papers. Take for example, simple graph convolution (SGC) [2]. SGC has the following layer definition. 
   $$H(m) = S^mH(0) \tag3$$ 
-  where H is the node hidden matrix, and S^m is the \(m\)-th power of the symmetrically normalized adjacency matrix S with added self loops.
-  Then, \(Eq.(2)\) can be derived from \(Eq.(3)\), as proven in [3], where \(Eq.(2)\) becomes equivalent to \(Eq.(3)\) when Euler method with a unit 
-  step size is used. 
+  where \(H\) is the node hidden matrix, and \(S^m\) is the \(m\)-th power of the symmetrically normalized adjacency matrix S with added self loops.
+  Then, <i>Eq.(2)</i> can be derived from <i>Eq.(3)</i>, as proven in [3], where <i>Eq.(2)</i> becomes equivalent to <i>Eq.(3)</i> when Euler method with a unit 
+  step size is used. This analogy of diffusion based GNNs to continuous graph neural networks enables simple euler solvers to be expanded to various solvers, such 
+  as Dormand-Prince method or implicit solvers. Moreover, neural network for uncertainty modeling can be applied side by side with diffusion equation completing 
+  the equation for our NDE.
 </p>
+<h2>Where NDE leads us</h2>
 <p>
   Our method, therefore, can be viewed as where the study of physics informed neural networks and graph neural networks, and neural differential equations meet.
-
+  This also suggests us that there are multiple ways to expand or change and reinvent the concept. Currently, me and my colleagues are working on not only its 
+  applications but also developing its theory.</p><p>
+  Since there are numerous equations that can be applied in this framework, a simple extension would be changing the differential equation.
+  Advection-diffusion (or convection-diffusion) equation, would the most straight-forward extension of our work, which also takes into consideration of the direction
+  of graph. Since the graph structure and edge classes are maintained throughout the whole process of our proposed training process, dynamic graphs or graph-structure
+  learning can also be an advancement. Finally, with the recent success of neural controlled differential equation, NCDE[4], its also a great way to renew / 
+  develop the idea.(Check on our new project, <a href="/projects/STG-NCDE/index.html">STG-NCDE</a>)
   </article>
 
 </div>
