@@ -210,13 +210,59 @@
       <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Energy-Aware Pruning</h1>
+    <h1 class="post-title">Nuclear Norm Pruning</h1>
     <p class="post-description">Toward Compact Deep Neural Networks via Energy-Aware Pruning
       [<a href="https://arxiv.org/abs/2103.10858" target="_blank" rel="noopener noreferrer"><U>arXiv</U></a>]</p>
+      <div class="row justify-content-sm-center">
+        <div class="col-sm-8 mt-2 mt-md-0">
+        <img class="img-fluid rounded center" src="/assets/resized/NN-Pruning_thumbnail.jpg">
+        </div>
+      </div>
   </header>
 
   <article>
-    
+    <h2>Internship as Research Scientist in <a href="https://nota.ai/en/index.php"  target="_blank" rel="noopener noreferrer">Nota.Inc</a></h2>
+    <p>
+      Energy-Aware pruning, or in other words, nuclear norm pruning, was a project that was mainly developed for Nota's primary engine of compressing neural network.
+      Nota, a South Korean incorporation that recently recieved a Series A investment, is a company that focuses in neural network compression. Their main project and
+      commodity, <a href="https://nota.ai/tech.php">netspresso</a>, offers a whole pipeline including pretrained model, compression, HPO for target device, and completes 
+      a full stand alone model. Their primary technology includes pruning, quantization, knowledge distillation,, neural architecture search, and filter decomposition. 
+      In Nota, they have a separate division solely for research in model pruning. This division's research is also utilized as part of netspresso's compression model.
+    </p>
+    <p>
+      I joined in Nota as an intern, by the opportunity given by Yonsei University's startup internship program. Since I had research experience in 
+      BigDyl lab of Yonsei university, I had the opportunity to work as a research scientist. The internship program was supposed to last for only 6 weeks, but 
+      since I was deeply involved in this project and was writing a paper for submission, I extended my original contract to 2 months and also participated afterwards 
+      for paper revisions. 
+    </p>
+    <p>
+      Since I lacked in knowledge in pruning and model compression, 2 month was not enough. However, at the time, I solely focused in the internship and 
+      therefore it was possible me to contribute as an author in a relatively short term. My main contributions were suggesting implementing ablation studies, and 
+      experiments on ImageNet dataset. My major role was also to write and revise the paper overall.
+    </p>
+    <h2>Recall on the project</h2>
+    <p>
+        $$\hat{x} = USV^T = \sum_{i=1}^N\sigma_iu_iv_i^T \quad \cdot \cdot \cdot(1) \qquad \quad ||\hat{x}||_*=\sum_{i=1}^N\sigma_i \quad \cdot \cdot \cdot(2)$$
+      <div class="caption">
+        (1) \(\hat{x}\) denotes the reshaped 2D filter, and U and V denote the left and right singular vector matrix and S indicates the diagonal matrix of singular values. (2)
+        \(||\hat{x}||_*\) denotes nuclear-norm, the sum of singular values.
+      </div>
+    </p>
+    <p>
+      What was particularly intruiging during the project was the oppotunity to dive into various linear algebra equations. since I was in charge of writing 
+      the overall paper, I had to obtain general knowledge of pruning research, which required considerable amount of knowledge in linear algebra. Since it was 
+      before I took the computer vision class, it was difficult to catch up, so I started reading numerous papers in the field. It helped a lot in not only my reading 
+      skills, but also enhanced my knowledge in linear algebra.
+    </p>
+    <img src="/assets/resized/NN-"
+    <p>
+      Moreover, since when I joined the project, the concept of using nuclear norm as a pruning criteria was hardened but the supporting experiments and logic was not enough.
+      Therefore, I spent the remaining time mostly on designing ablation studies and logics to support our project. During this process, I designed and implemented 
+      experiments where our model was compared in terms of quantity and quality of the data. 
+    </p>
+    <p>
+      
+    </p>
   </article>
 
 </div>
