@@ -222,15 +222,15 @@
 
   <h2>How it all started</h2>
 <p class="subhead">
-  Climate modeling with neural diffusion equations, started off as a task for capstone project in Yonsei University.
-  After working on the <a href="/projects/NPDE/">neural partial differential equations (Neural PDE)</a> project in 
-  <a href="https://sites.google.com/view/npark/home">BigDyl</a> lab with Prof.Noseong Park, which was closely related to 
-  <a href="https://towardsdatascience.com/neural-odes-breakdown-of-another-deep-learning-breakthrough-3e78c7213795">neural ODE</a> 
-  and <a href="https://maziarraissi.github.io/PINNs/">PINN</a>,   
-  my interest was mainly focused in neural differential equations and physics informed neural networks. During the time of research for the project Neural PDE, 
-  I learned about climate modeling through the partial differential equation. However, attempts on directly applying Neural PDE to climate datasets, or
-  to other spatiotemporal datasets, weren't successful as expected. This induced me to dig deeper into the recent successes of spatiotemporal models, which
-  produced successful prediction results in climate forecasting / traffic forecasting tasks during the time.
+  Climate modeling with neural diffusion equations started as a task for a capstone project at Yonsei University. 
+  After working on the <a href="/projects/NPDE/" target="_blank" rel="noopener noreferrer">neural partial differential equations (Neural PDE)</a> project in 
+  <a href="https://sites.google.com/view/npark/home" target="_blank" rel="noopener noreferrer">BigDyl</a> lab with Prof.Noseong Park, closely related to  
+  <a href="https://towardsdatascience.com/neural-odes-breakdown-of-another-deep-learning-breakthrough-3e78c7213795" target="_blank" rel="noopener noreferrer">neural ODE</a> 
+  and <a href="https://maziarraissi.github.io/PINNs/" target="_blank" rel="noopener noreferrer">PINN</a>,   
+  my interest was mainly focused on neural differential equations and physics-informed neural networks. During research for the project Neural PDE, 
+  I learned about climate modeling through the partial differential equation. However, attempts to directly apply Neural PDE to climate datasets or 
+  other spatiotemporal datasets were not successful as expected. This experience induced me to dig deeper into the recent successes of spatiotemporal 
+  models, which produced successful prediction results in climate forecasting/traffic forecasting tasks during the time. 
 </p>
 <div class="row justify-content-sm-center">
   <div class="col-sm-10 mt-2 mt-md-0">
@@ -242,8 +242,9 @@
 </div>
 <h2>So what is Neural Diffusion Equation?</h2>
 <p>
-  Before diving in to extensions and interpretations of the proposed NDE, I would like to explain briefly about the concept (For those who want more detailed 
-  explanation on the method, please refer to the paper, [<a href="/assets/pdf/Climate_Modeling_with_Neural_Ordinary_Differential_Equations.pdf">PDF</a>].). 
+  Before diving into extensions and interpretations of the proposed NDE, I would like to briefly explain the concept 
+  (For those who want a more detailed explanation of the method, please refer to the paper, 
+  [<a href="/assets/pdf/Climate_Modeling_with_Neural_Ordinary_Differential_Equations.pdf" target="_blank" rel="noopener noreferrer">PDF</a>].). 
 </p>
 </p>
 <div class="row justify-content-sm-center">
@@ -256,15 +257,15 @@ Description of the proposed model, <i>NDE</i>.
 </div>
 <p>
   The weather stations (and their sensing values) are represented as a graph and our NDE predicts their future values. Given a graph \(G = (V, E) \) annotated 
-  with node and edge features, the core NDE layer evolves \(H_V^{(0)}\) to \(H_V^{(1)}\), followed by a decoding layer which produces predictions. The NDE
-  layer consists of two parts: i) the diffusion equation and ii) the neural network based uncertainty model \(f\).</p><p>
-  In our model, diffusion equation consists of the predefined graph laplacian matrix, and learnable heat capacity matrix. There are four types for heat capacity modeling as follows.<br>
+  with node and edge features, the core NDE layer evolves \(H_V^{(0)}\) to \(H_V^{(1)}\), followed by a decoding layer that produces predictions. Thus, the NDE
+  layer consists of two parts: <b>i)</b> the diffusion equation and <b>ii)</b> the neural network-based uncertainty model \(f\).</p><p>
+    Our model's diffusion equation consists of the predefined graph Laplacian matrix and learnable heat capacity matrix. There are four types for heat capacity modeling as follows.<br>
   1)<b>Edge class</b>: We learn a heat capacity coefficient for each class of edges when edge features are one-hot vectors. Edge classes are predefined by the land 
   usage of each node(land).<br>
   2)<b>Heat matrix</b>: We learn a heat capacity matrix \(K ∈ R^{|V|×|V|}\).<br>
   3)<b>Single coefficient</b>: We learn a single heat capacity coefficient \(k ∈ R\).<br>
-  4)<b>Fixed coeefficient</b>: We consider the case of \(k=1\).<br>
-  Uncertainty model, \(f\) consists of a neural networks with small number of parameter, for modeling noise in the given climate dataset to deal with the part that
+  4)<b>Fixed coefficient</b>: We consider the case of \(k=1\).<br>
+  Uncertainty model \(f\) consists of a neural network with a few parameters for modeling noise in the given climate dataset to deal with the part that 
   cannot be addressed by diffusion processes alone.
 </p>
 <p>
@@ -276,16 +277,16 @@ Description of the proposed model, <i>NDE</i>.
     (2) Continuous version of graph neural networks.
   </p>
 
-  Differentiable Physics-informed Graph Networks (DPGN) [1], is a good starting point on explaining why NDE can be viewed as 
-  modeling diffusion equation with Neural ODE. As stated in [1], number of physics equations are involved in climate observations,
-  and it is almost infeasible to include all required equations. Therefore, they suggested a solution involving graph neural networks,
-  using diffusion equation as a regularizer in the loss function. The heat diffusion equation on graph \(G\) can be expressed as follows when
-   applied to a graph structure. $$v_i' = v_i + k(Δv)_i \tag1$$ 
+  Differentiable Physics-informed Graph Networks (DPGN) [1] is a good starting point for explaining why NDE can be viewed as 
+  modeling diffusion equations with Neural ODE. As stated in [1], many physics equations are involved in climate observations, and it is almost 
+  infeasible to include all required equations. Therefore, they suggested a solution involving graph neural networks, using diffusion equation 
+  as a regularizer in the loss function. The heat diffusion equation on graph \(G\) can be expressed as follows when
+  applied to a graph structure. $$v_i' = v_i + k(Δv)_i \tag1$$ 
   Where \(v_i\) denotes the \(i\)th node of the graph \(G\), \(k\) indicates the heat capacity, and \(Δ\) represents the graph Laplacian operator.
-  Since graph is a 1 dimensional representation, diffusion equation can be displayed in a form of ordinary differential equation.
+  Since the graph is a one-dimensional representation, the diffusion equation can be displayed in the form of ordinary differential equation.
   $$\frac{dh(t)}{dt} = -kΔh(t) \tag2$$
-  Here, \(h \in R^{|V|\times1}\)is a vector that contains a value for each node. This enables the application of neural ODE. 
-  Though this may seem as a simple extension of neural ODE, the concept contains much deeper interpretations and extensions. 
+  Here, \(h \in R^{|V|\times1}\)is a vector that contains a value for each node. This interpretation of diffusion equation on graph 
+  enables the application of neural ODE.
 </p>
 <div class="row justify-content-sm-center">
   <div class="col-sm-3 mt-2 mt-md-0">
@@ -305,26 +306,26 @@ Description of the proposed model, <i>NDE</i>.
   Temperature change of LA dataset over time. Nodes are exchanging temperature similar to heat diffusion process.
 </div>
 <p>
-  Graph Neural Networks (GNNs), operate by exchanging information between adjacent nodes in the form of message passing. This process is 
-  conceptually equivalent to diffusion process, where nodes conduct diffusion through the edges between each other. This analogy can be 
-  applied in various GNN based papers. Take for example, simple graph convolution (SGC) [2]. SGC has the following layer definition. 
+  Graph Neural Networks (GNNs) operate by exchanging information between adjacent nodes in the form of message passing. This process is conceptually equivalent 
+  to the diffusion process, where nodes conduct diffusion through the edges. This analogy can be applied in various GNN based papers. Take, for example, simple 
+  graph convolution (SGC) [2]. SGC has the following layer definition.
   $$H(m) = S^mH(0) \tag3$$ 
   where \(H\) is the node hidden matrix, and \(S^m\) is the \(m\)-th power of the symmetrically normalized adjacency matrix S with added self loops.
-  Then, <i>Eq.(2)</i> can be derived from <i>Eq.(3)</i>, as proven in our paper, where <i>Eq.(2)</i> becomes equivalent to <i>Eq.(3)</i> when Euler method with a unit 
-  step size is used. This analogy of diffusion based GNNs to continuous graph neural networks enables simple euler solvers to be expanded to various solvers, such 
-  as Dormand-Prince method or implicit solvers. Moreover, neural network for uncertainty modeling can be applied side by side with diffusion equation completing 
-  the equation for our NDE.
+  Then, <i>Eq.(2)</i> can be derived from <i>Eq.(3)</i>, as proven in our paper, where <i>Eq.(2)</i> becomes equivalent to <i>Eq.(3)</i> when the Euler method with a unit 
+  step size is used. This analogy of diffusion-based GNNs to continuous graph neural networks enables simple Euler solvers to be expanded to various solvers, such 
+  as the Dormand-Prince method or implicit solvers. Moreover, a neural network for uncertainty modeling can be applied side by side with a diffusion equation 
+  completing the equation for our NDE.
 </p>
 <h2>Where NDE leads us</h2>
 <p>
-  Our method, therefore, can be viewed as where the study of physics informed neural networks and graph neural networks, and neural differential equations meet.
-  This also suggests us that there are multiple ways to expand or change and reinvent the concept. Currently, me and my colleagues are working on not only its 
-  applications but also developing its theory.</p><p>
-  Since there are numerous equations that can be applied in this framework, a simple extension would be changing the differential equation.
-  Advection-diffusion (or convection-diffusion) equation, would the most straight-forward extension of our work, which also takes into consideration of the direction
-  of graph. Since the graph structure and edge classes are maintained throughout the whole process of our proposed training process, dynamic graphs or graph-structure
-  learning can also be an advancement. Finally, controlled differential equations, a more general equation that ordinary differential equation that uses Riemman 
-  integral, can also be a good direction to advance. (Check on our new project <a href="/projects/STG-NCDE/index.html">STG-NCDE</a>)</p>
+  Our method, therefore, can be viewed as where the study of physics informed neural networks and graph neural networks, and neural differential equations meet. 
+  This analogy also suggests that there are multiple ways to expand or change and reinvent the concept. Currently, my colleagues and I are working on not only 
+  its applications but also developing its theory.</p><p>
+    Since numerous equations can be applied in this framework, a simple extension would be changing the differential equation. Advection-diffusion 
+    (or convection-diffusion) equation would be the most straightforward extension of our work, which also considers the direction of the graph. Since the 
+    graph structure and edge classes are maintained throughout our proposed training process, dynamic graphs or graph-structure learning can also be an 
+    advancement. Finally, controlled differential equations, a more general equation than an ordinary differential equation that uses the Riemman integral, 
+    can also be a great direction to advance. (Check on our new project <a href="/projects/STG-NCDE/index.html">STG-NCDE</a>)</p>
   <p>Currently, this project is under journal extension process.✨</p>
 <p>
   <h3>References</h3>
